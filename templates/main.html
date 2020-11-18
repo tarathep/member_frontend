@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pricing example for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/pricing/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/pricing/pricing.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal" id="title">Welcome {{.Permission}}({{.Name}})</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <button type="button" class="btn btn-outline-success p-2" data-toggle="modal" data-target="#modalAdd">Add
+                Member</button>
+            <a class="btn btn-outline-danger p-2" href="/logout">Logout</a>
+        </nav>
+    </div>
+
+    <!-- The Modal Add Member -->
+    <div class="modal fade" id="modalAdd">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal_header">Add Member</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <form method="POST" action="/add">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="modal_add_id">ID:</label>
+                            <input type="text" class="form-control" id="modal_add_id" name="modal_add_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_add_firstname">Firstname:</label>
+                            <input type="text" class="form-control" id="modal_add_firstname" name="modal_add_firstname">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_add_lastname">Lastname:</label>
+                            <input type="text" class="form-control" id="modal_add_lastname" name="modal_add_lastname">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_add_role">Role:</label>
+                            <select class="form-control" id="modal_add_role" name="modal_add_role">
+                                <option>User</option>
+                                <option>Admin</option>
+                                <option>Developer</option>
+                                <option>Tester</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_add_email">Email:</label>
+                            <input type="email" class="form-control" id="modal_add_email" name="modal_add_email">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_add_password">Password:</label>
+                            <input type="password" class="form-control" id="modal_add_password"
+                                name="modal_add_password">
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal Edit Member -->
+    <div class="modal fade" id="modalEdit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal_header">Edit Member</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <form method="POST" action="/edit">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="modal_edit_id">ID:</label>
+                            <input type="text" class="form-control" id="modal_edit_id" name="modal_edit_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_edit_firstname">Firstname:</label>
+                            <input type="text" class="form-control" id="modal_edit_firstname"
+                                name="modal_edit_firstname">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_edit_lastname">Lastname:</label>
+                            <input type="text" class="form-control" id="modal_edit_lastname" name="modal_edit_lastname">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_edit_role">Role:</label>
+                            <select class="form-control" id="modal_edit_role" name="modal_edit_role">
+                                <option>User</option>
+                                <option>Admin</option>
+                                <option>Developer</option>
+                                <option>Tester</option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_edit_email">Email:</label>
+                            <input type="email" class="form-control" id="modal_edit_email" name="modal_edit_email">
+                        </div>
+                        <div class="form-group">
+                            <label for="modal_edit_password">Password:</label>
+                            <input type="password" class="form-control" id="modal_edit_password"
+                                name="modal_edit_password">
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal Delete -->
+    <div class="modal fade" id="modalDelete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Message</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p you want Delete ID:></p>
+                    <p id="modal_delete_message">empty</p>
+                    <p> ?</p>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="deleted()"
+                        data-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Members Team</h2>
+        <p>The .table-striped class adds zebra-stripes to a table:</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{range .Members}}
+                <tr>
+                    <td>{{.ID}}</td>
+                    <td>{{.FirstName}}</td>
+                    <td>{{.LastName}}</td>
+                    <td>{{.Role}}</td>
+                    <td>{{.Email}}</td>
+                    <td><button type="button" class="btn btn-warning"
+                            onclick="selectEdit('{{.ID}}','{{.FirstName}}','{{.LastName}}','{{.Role}}','{{.Email}}','{{.Password}}');">EDIT</button>
+                        |
+                        <button type="button" class="btn btn-danger" onclick="selectDelete('{{.ID}}');">DELETE</button>
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt=""
+                        width="24" height="24">
+                    <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Cool stuff</a></li>
+                        <li><a class="text-muted" href="#">Random feature</a></li>
+                        <li><a class="text-muted" href="#">Team feature</a></li>
+                        <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                        <li><a class="text-muted" href="#">Another one</a></li>
+                        <li><a class="text-muted" href="#">Last time</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Resource</a></li>
+                        <li><a class="text-muted" href="#">Resource name</a></li>
+                        <li><a class="text-muted" href="#">Another resource</a></li>
+                        <li><a class="text-muted" href="#">Final resource</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Team</a></li>
+                        <li><a class="text-muted" href="#">Locations</a></li>
+                        <li><a class="text-muted" href="#">Privacy</a></li>
+                        <li><a class="text-muted" href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+    <script>
+        Holder.addTheme('thumb', {
+            bg: '#55595c',
+            fg: '#eceeef',
+            text: 'Thumbnail'
+        });
+    </script>
+</body>
+
+</html>
+<script>
+    function selectEdit(id, firstname, lastname, role, email, password) {
+        $('#modalEdit #modal_edit_id').val(id);
+        $('#modalEdit #modal_edit_firstname').val(firstname);
+        $('#modalEdit #modal_edit_lastname').val(lastname);
+        $('#modalEdit #modal_edit_role').val(role);
+        $('#modalEdit #modal_edit_email').val(email);
+        $('#modalEdit #modal_edit_password').val(password);
+        $('#modalEdit').modal('show');
+    }
+
+    function selectDelete(id) {
+        document.getElementById("modal_delete_message").innerHTML = id;
+        $('#modalDelete').modal('show');
+    }
+
+    function deleted() {
+        delete_id = document.getElementById("modal_delete_message").innerHTML;
+        const url = "/delete?id=" + delete_id
+        let data = {
+            id: delete_id
+        }
+        let fetchData = {
+            method: 'POST',
+            body: data,
+            headers: new Headers()
+        }
+        fetch(url, fetchData)
+            .then(function () {
+                active();
+            });
+
+        console.log(url)
+    }
+
+    function active() {
+        window.location.href = "/main";
+    }
+
+</script>
